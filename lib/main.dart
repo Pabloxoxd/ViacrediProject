@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:viacredi/second.dart';
+import 'package:viacredi/ifCpf.dart';
+import 'package:viacredi/imagesConstruct.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -35,26 +37,11 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Image.asset(
-            "images/bg.png",
-            fit: BoxFit.fill,
-            width: 2000.0,
-          ),
+          bgBuilder(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 30.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Image.asset(
-                      "images/logo.png",
-                      width: 400.0,
-                    ),
-                  ],
-                ),
-              ),
+              logoBuilder(),
               Padding(
                 padding: EdgeInsets.only(top: 40.0),
                 child: Row(
@@ -210,20 +197,7 @@ class _HomeState extends State<Home> {
               )
             ],
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Image.asset(
-                    "images/desenho.png",
-                    width: 200.0,
-                  ),
-                ],
-              )
-            ],
-          ),
+          sideDrawBuilder(),
         ],
       ),
     );

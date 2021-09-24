@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:viacredi/ifCpf.dart';
+import 'package:viacredi/imagesConstruct.dart';
 
 class StarRate extends StatefulWidget {
   StarRate({Key? key}) : super(key: key);
@@ -20,11 +21,7 @@ class _StarRateState extends State<StarRate> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Image.asset(
-            "images/bg.png",
-            fit: BoxFit.fill,
-            width: 2000.0,
-          ),
+          bgBuilder(),
           Column(
             children: [
               buildRow("Ambiente do Posto de Atendimento"),
@@ -40,14 +37,11 @@ class _StarRateState extends State<StarRate> {
                   children: [
                     TextButton(
                       style: TextButton.styleFrom(
-                        backgroundColor: Colors.orange,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            30.0,
+                          backgroundColor: Colors.blue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
                           ),
-                        ),
-                        minimumSize: Size(150, 60),
-                      ),
+                          minimumSize: Size(150, 60)),
                       onPressed: () {
                         Navigator.pop(context);
                         Navigator.push(context,
@@ -61,26 +55,13 @@ class _StarRateState extends State<StarRate> {
                           fontSize: 30,
                         ),
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),
             ],
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Image.asset(
-                    "images/desenho.png",
-                    width: 200.0,
-                  ),
-                ],
-              )
-            ],
-          ),
+          sideDrawBuilder(),
         ],
       ),
     );
