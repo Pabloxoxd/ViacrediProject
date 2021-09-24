@@ -14,13 +14,39 @@ class _FinalCommentState extends State<FinalComment> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            "images/bg.png",
-            fit: BoxFit.fill,
-            width: 2000.0,
+          bgBuilder(),
+          Column(
+            children: [
+              logoBuilder(),
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: Text(
+                  "Deixe seu comentário!!",
+                  style: TextStyle(
+                    fontSize: 45,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+              ),
+              SizedBox(
+                height: 300,
+                width: 500,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+                    hintText: "Escreva algo...",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
-          logoBuilder(),
-          sideDrawBuilder()
+          sideDrawBuilder(),
         ],
       ),
     );
